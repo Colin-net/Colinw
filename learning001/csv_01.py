@@ -26,5 +26,19 @@ def read_csv_02():
             print(row['name'])
 
 
+def write_csv_01():
+    with open('test.csv', 'w', newline='') as f:
+        f_csv = csv.writer(f)
+        f_csv.writerow(headers)
+        f_csv.writerows(row_data)
+
+
+def write_csv_02():
+    with open('test.csv', 'w', newline='') as f:
+        f_csv = csv.DictWriter(f, headers)
+        f_csv.writeheader()
+        f_csv.writerows(row_data_dict)
+
+
 if __name__ == '__main__':
-    read_csv_01()
+    write_csv_02()
